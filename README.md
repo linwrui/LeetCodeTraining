@@ -4,3 +4,5 @@
 `npm install` 或者 `yarn`
 # 执行测试
 `yarn jest`
+# TODO:
+* [ ] GitHub CI
