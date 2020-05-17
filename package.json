@@ -4,9 +4,15 @@
   },
   "devDependencies": {
     "jest": "^26.0.1",
+    "node-fetch": "^2.6.0",
     "prettier": "2.0.5"
   },
   "dependencies": {
     "@types/jest": "^25.2.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./setupJest.js"
+    ]
   }
 }
