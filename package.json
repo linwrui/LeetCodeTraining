@@ -3,7 +3,8 @@
     "test": "jest"
   },
   "devDependencies": {
-    "jest": "^26.0.1"
+    "jest": "^26.0.1",
+    "prettier": "2.0.5"
   },
   "dependencies": {
     "@types/jest": "^25.2.2"
