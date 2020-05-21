@@ -1,13 +1,13 @@
 const fs = require('fs');
 const continuousDichotomizationApproach = require("../../../common/approach");
-const sum = require("../../../common/sum");
+const sumBy = require("../../../common/sum");
 /**
  * @param {number[]} nums
  * @param {number} threshold
  * @return {number}
  */
 var smallestDivisor = function(nums, threshold) {
-    return continuousDichotomizationApproach([1, Math.max(...nums)], (x) => (sum(nums, (n) => Math.ceil(n / x)) <= threshold), "left");
+    return continuousDichotomizationApproach([1, Math.max(...nums)], (x) => (sumBy(nums, (n) => Math.ceil(n / x)) <= threshold), "left");
 };
 test("test1", () => {
     expect(smallestDivisor([1,2,5,9], 6)).toBe(5);

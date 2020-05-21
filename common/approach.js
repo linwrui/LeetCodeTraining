@@ -11,13 +11,17 @@ function continuousDichotomizationApproach(nums, approachTo, approachDirection) 
     const end = Math.max(...nums);
     if (start === end) return start;
     const possibleApproachNum = approachDirection === "left" ? start + Math.ceil((end - start)/2) : start + Math.floor((end - start)/2);
-    if (approachTo(possibleApproachNum)) {
+    if (checkApproach(approachTo, possibleApproachNum)) {
         if (possibleApproachNum - start === 1){
-          return approachTo(start) ? start : possibleApproachNum;
+          return checkApproach(approachTo, start) ? start : possibleApproachNum;
         }
         return continuousDichotomizationApproach(approachDirection === "left" ? [start, possibleApproachNum] : [possibleApproachNum, end], approachTo, approachDirection);
     } else { // 不满足逼近的条件，取中值方向刚好与满足逼近条件的相反
         return continuousDichotomizationApproach(approachDirection === "right" ? [start, possibleApproachNum] : [possibleApproachNum, end], approachTo, approachDirection);
     }
 }
+function checkApproach(approachTo, possibleApproachNum) {
+    return typeof approachTo === "function" ? approachTo(possibleApproachNum) : approachTo === possibleApproachNum;
+}
 module.exports = continuousDichotomizationApproach;
+
