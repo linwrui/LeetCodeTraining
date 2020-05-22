@@ -1,5 +1,4 @@
 const fs = require('fs');
-const continuousDichotomizationApproach = require("../../../common/approach");
 const sumBy = require("../../../common/sum");
 /**
  * @param {number[]} nums
@@ -7,8 +6,23 @@ const sumBy = require("../../../common/sum");
  * @return {number}
  */
 var smallestDivisor = function(nums, threshold) {
-    return continuousDichotomizationApproach([1, Math.max(...nums)], (x) => (sumBy(nums, (n) => Math.ceil(n / x)) <= threshold), "left");
+    return dichotomizationApproach(1, Math.max(...nums), (x) => (sumBy(nums, (n) => Math.ceil(n / x)) <= threshold));
 };
+function dichotomizationApproach(start, end, approachTo) {
+    if (start === end) return start;
+    const possibleApproachNum = start + Math.ceil((end - start)/2);
+    if (checkApproach(approachTo, possibleApproachNum)) {
+        if (possibleApproachNum - start === 1){
+          return checkApproach(approachTo, start) ? start : possibleApproachNum;
+        }
+        return dichotomizationApproach(start, possibleApproachNum, approachTo);
+    } else { // 不满足逼近的条件，取中值方向刚好与满足逼近条件的相反
+        return dichotomizationApproach(possibleApproachNum, end, approachTo);
+    }
+}
+function checkApproach(approachTo, possibleApproachNum) {
+    return typeof approachTo === "function" ? approachTo(possibleApproachNum) : approachTo === possibleApproachNum;
+}
 test("test1", () => {
     expect(smallestDivisor([1,2,5,9], 6)).toBe(5);
 });
