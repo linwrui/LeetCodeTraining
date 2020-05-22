@@ -55,7 +55,7 @@ test("test2", ()=>{
 test("test3", ()=>{
     expect(addTwoNumbers([0].toListNode(), [0].toListNode())).toMatchObject([0].toListNode());
 });
-test("test3", ()=>{
+test("test4", ()=>{
     expect(addTwoNumbers(
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode(), 
         [5,6,4].toListNode())).toMatchObject([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode());
