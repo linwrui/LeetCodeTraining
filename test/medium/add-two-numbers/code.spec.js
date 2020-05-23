@@ -1,4 +1,4 @@
-const ListNode = require("list-node");
+const ListNode = require("../../../common/list-node");
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

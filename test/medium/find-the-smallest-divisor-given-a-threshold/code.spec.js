@@ -1,5 +1,5 @@
 const fs = require("fs");
-const sumBy = require("sum");
+const sumBy = require("../../../common/sum");
 /**
  * @param {number[]} nums
  * @param {number} threshold
