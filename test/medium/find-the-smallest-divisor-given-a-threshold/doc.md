@@ -1,5 +1,7 @@
 # 使结果不超过阈值的最小除数
 
+> 使结果不超过阈值的最小除数 - 力扣（LeetCode） https://leetcode-cn.com/problems/find-the-smallest-divisor-given-a-threshold/
+
 -   给你一个整数数组`nums`和一个正整数`threshold`，你需要选择一个正整数作为除数，然后将数组里每个数都除以它，并对除法结果求和。
 -   请你找出能够使上述结果小于等于阈值`threshold`的除数中**最小**的那个。
 -   每个数除以除数后都向上取整，比方说`7/3 = 3` ， `10/2 = 5`。
