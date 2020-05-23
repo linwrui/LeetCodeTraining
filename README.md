@@ -13,5 +13,5 @@
 ## TODO:
 
 -   [ ] GitHub CI
--   [-] ES Lint
--   [-] Prettier
+-   [x] ES Lint
+-   [x] Prettier
