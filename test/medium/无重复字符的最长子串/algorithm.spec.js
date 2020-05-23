@@ -1,3 +1,4 @@
+const fs = require("fs");
 /**
  * @param {string} s
  * @return {number}
@@ -8,16 +9,13 @@ var lengthOfLongestSubstring = function (s) {
     var substring = "";
     for (let i = 0; i < s.length; i++) {
         var char = s[i];
-        if (!substring.includes(char)) {
+        var searchIndex = substring.indexOf(char);
+        if (searchIndex===-1) {
             substring += char;
         } else {
-            substring = substring.substring(substring.search(char) + 1) + char; // 如果发现重复值，那么就需要往前截断重复值，并把当前字符推送进去作为新的截断字符串
+            substring = substring.substring(searchIndex + 1) + char; // 如果发现重复值，那么就需要往前截断重复值，并把当前字符推送进去作为新的截断字符串
         }
-        if (substring.length > result) {
-            result = substring.length;
-        } else if (result === 0) {
-            result = 1;
-        }
+        result = Math.max(substring.length, result);
     }
     return result;
 };
@@ -53,4 +51,8 @@ test("test10", () => {
 });
 test("test11", () => {
     expect(lengthOfLongestSubstring("abababab!bb")).toBe(3);
+});
+test("test12", () => {
+    const json = JSON.parse(fs.readFileSync(`${__dirname}/sample-1.json`));
+    expect(lengthOfLongestSubstring(...json.args)).toBe(json.expect);
 });
