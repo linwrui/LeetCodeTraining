@@ -1,20 +1,21 @@
 {
-  "scripts": {
-    "test": "jest"
-  },
-  "devDependencies": {
-    "eslint": "^7.0.0",
-    "eslint-plugin-react": "^7.20.0",
-    "jest": "^26.0.1",
-    "node-fetch": "^2.6.0",
-    "prettier": "2.0.5"
-  },
-  "jest": {
-    "setupFiles": [
-      "./setupJest.js"
-    ]
-  },
-  "dependencies": {
-    "@types/jest": "^25.2.3"
-  }
+    "scripts": {
+        "test": "jest"
+    },
+    "devDependencies": {
+        "eslint": "^7.0.0",
+        "eslint-plugin-react": "^7.20.0",
+        "jest": "^26.0.1",
+        "node-fetch": "^2.6.0",
+        "prettier": "2.0.5"
+    },
+    "jest": {
+        "setupFiles": [
+            "./setupJest.js"
+        ]
+    },
+    "dependencies": {
+        "@types/jest": "^25.2.3",
+        "eslint-plugin-prettier": "^3.1.3"
+    }
 }
