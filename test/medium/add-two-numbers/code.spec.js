@@ -17,13 +17,13 @@ var addTwoNumbers = function(l1, l2) {
     var resultNextListNode; // 存储结果运算的单链表最后一环
     var l1Val = l1.val;
     var l2Val = l2.val;
-    while(l1Val != null) {
+    while(l1 || l2) {
         var sum = l1Val + l2Val + carry;
         carry = Math.floor(sum / 10); // 进位数计算
         if(l1 && l1.next){
             l1Val = l1.next.val;
         } else {
-            l1Val = null;
+            l1Val = 0;
         }
         l1 = l1 && l1.next;
         if(l2 && l2.next){
@@ -39,13 +39,6 @@ var addTwoNumbers = function(l1, l2) {
         } else {
             resultNextListNode = resultNextListNode.next = new ListNode(sum%10);
         }
-    }
-    while(l2){
-        // 到了这一步只需要不断把l2剩下的值写入到result里面即可
-        var sum2 = l2.val+carry;
-        carry = Math.floor(sum2 / 10);
-        resultNextListNode = resultNextListNode.next = new ListNode(sum2%10);
-        l2 = l2.next;
     }
     if(carry!==0) {
         resultNextListNode.next = new ListNode(carry);
