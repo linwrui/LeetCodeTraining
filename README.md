@@ -15,3 +15,4 @@
 -   [x] GitHub CI
 -   [x] ES Lint
 -   [x] Prettier
+-   [ ] Custom CLI
