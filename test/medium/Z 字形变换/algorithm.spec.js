@@ -4,7 +4,7 @@
  * @return {string}
  */
 var convert = function (s, numRows) {
-    var matrix = []; // 矩阵行数等于numRows，列数等于Math.ceil(s.length/numRows)
+    var matrix = [];
     var zeroBaseRows = numRows - 1;
     var fixRow = 0;
     var fixColumn = 0;
