@@ -34,7 +34,8 @@ function numToListNode(num) {
             listNode = new ListNode(num%10);
             next = listNode;
         } else {
-            next = next.push(num%10);
+            next.next = new ListNode(num%10);
+            next = next.next;
         }
         num = Math.floor(num/10);
     }
@@ -46,17 +47,23 @@ test("listToNum1", ()=>{
 test("listToNum2", ()=>{
     expect(listNodeToNum([2,4,3,8,9].toListNode())).toBe(98342);
 })
+test("listToNum3", ()=>{
+    expect(listNodeToNum([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode())).toBe(1000000000000000000000000000001);
+})
+test("isListNode", ()=>{
+    expect(addTwoNumbers([2,4,3].toListNode(), [5,6,4].toListNode())).toBeInstanceOf(ListNode);
+});
 test("test1", ()=>{
-    expect(addTwoNumbers([2,4,3].toListNode(), [5,6,4].toListNode())).toMatchObject([7,0,8].toListNode());
+    expect(addTwoNumbers([2,4,3].toListNode(), [5,6,4].toListNode())).toMatchObject([7,0,8].toListNode().noInstance());
 });
 test("test2", ()=>{
-    expect(addTwoNumbers([2,4,3,8,9].toListNode(), [5,6,4].toListNode())).toMatchObject([7,0,8,8,9].toListNode());
+    expect(addTwoNumbers([2,4,3,8,9].toListNode(), [5,6,4].toListNode())).toMatchObject([7,0,8,8,9].toListNode().noInstance());
 });
 test("test3", ()=>{
-    expect(addTwoNumbers([0].toListNode(), [0].toListNode())).toMatchObject([0].toListNode());
+    expect(addTwoNumbers([0].toListNode(), [0].toListNode())).toMatchObject([0].toListNode().noInstance());
 });
 test("test4", ()=>{
     expect(addTwoNumbers(
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode(), 
-        [5,6,4].toListNode())).toMatchObject([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode());
+        [5,6,4].toListNode())).toMatchObject([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode().noInstance());
 });

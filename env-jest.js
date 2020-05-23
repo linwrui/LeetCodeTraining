@@ -6,4 +6,7 @@ Array.prototype.toListNode = function () {
     listNode.next = nextList.length?nextList.toListNode():null;
     return listNode;
 }
+Object.prototype.noInstance = function () {
+    return JSON.parse(JSON.stringify(this));
+}
 // #endregion
