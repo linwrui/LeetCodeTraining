@@ -36,6 +36,6 @@ test("test4", ()=>{
     expect(smallestDivisor([1,2,3], 6)).toBe(1);
 })
 test("test5", ()=>{
-    const json = JSON.parse(fs.readFileSync(`${__dirname}/sample-59.json`));
+    const json = JSON.parse(fs.readFileSync(`${__dirname}/sample-1.json`));
     expect(smallestDivisor(json.it, json.threshold)).toBe(json.expect);
 }, 1000);

@@ -6,5 +6,5 @@
 `yarn jest`
 ## TODO:
 * [ ] GitHub CI
-* [ ] ES Lint
+* [-] ES Lint
 * [ ] Prettier
