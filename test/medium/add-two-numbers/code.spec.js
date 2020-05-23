@@ -12,44 +12,46 @@ const ListNode = require("../../../common/list-node");
  * @return {ListNode}
  */
 var addTwoNumbers = function(l1, l2) {
-    var sum = listNodeToNum(l1) + listNodeToNum(l2);
-    var result = sum===0 ? new ListNode(0): numToListNode(sum);
+    var carry = 0; // 进位，用于存储下一位的进位数
+    var result; // 存储结果运算的单链表
+    var resultNextListNode; // 存储结果运算的单链表最后一环
+    var l1Val = l1.val;
+    var l2Val = l2.val;
+    while(l1Val != null) {
+        var sum = l1Val + l2Val + carry;
+        carry = Math.floor(sum / 10); // 进位数计算
+        if(l1 && l1.next){
+            l1Val = l1.next.val;
+        } else {
+            l1Val = null;
+        }
+        l1 = l1 && l1.next;
+        if(l2 && l2.next){
+            l2Val = l2.next.val;
+        } else {
+            l2Val = 0;
+        }
+        l2 = l2 && l2.next;
+        if(result == null){
+            resultNextListNode = result = new ListNode(sum%10);
+        } else if (!resultNextListNode) {
+            resultNextListNode = result.next = new ListNode(sum%10);
+        } else {
+            resultNextListNode = resultNextListNode.next = new ListNode(sum%10);
+        }
+    }
+    while(l2){
+        // 到了这一步只需要不断把l2剩下的值写入到result里面即可
+        var sum2 = l2.val+carry;
+        carry = Math.floor(sum2 / 10);
+        resultNextListNode = resultNextListNode.next = new ListNode(sum2%10);
+        l2 = l2.next;
+    }
+    if(carry!==0) {
+        resultNextListNode.next = new ListNode(carry);
+    }
     return result;
 };
-function listNodeToNum(listNode){
-    var num = 0;
-    var next = listNode;
-    var index = 0;
-    while(next){
-        num += next.val * Math.pow(10, index++)
-        next = next.next;
-    }
-    return num;
-}
-function numToListNode(num) {
-    var listNode;
-    var next;
-    while(num!=0) {
-        if(listNode===undefined){
-            listNode = new ListNode(num%10);
-            next = listNode;
-        } else {
-            next.next = new ListNode(num%10);
-            next = next.next;
-        }
-        num = Math.floor(num/10);
-    }
-    return listNode;
-}
-test("listToNum1", ()=>{
-    expect(listNodeToNum([2,4,3].toListNode())).toBe(342);
-})
-test("listToNum2", ()=>{
-    expect(listNodeToNum([2,4,3,8,9].toListNode())).toBe(98342);
-})
-test("listToNum3", ()=>{
-    expect(listNodeToNum([1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode())).toBe(1000000000000000000000000000001);
-})
 test("isListNode", ()=>{
     expect(addTwoNumbers([2,4,3].toListNode(), [5,6,4].toListNode())).toBeInstanceOf(ListNode);
 });
@@ -66,4 +68,12 @@ test("test4", ()=>{
     expect(addTwoNumbers(
         [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode(), 
         [5,6,4].toListNode())).toMatchObject([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode().noInstance());
+});
+test("test5", ()=>{
+    expect(addTwoNumbers(
+        [5,6,4].toListNode(),
+        [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode())).toMatchObject([6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1].toListNode().noInstance());
+});
+test("test6", ()=>{
+    expect(addTwoNumbers([5].toListNode(), [5].toListNode())).toMatchObject([0, 1].toListNode().noInstance());
 });
