@@ -16,4 +16,3 @@ test("test3", () => {
 test("test4", () => {
     expect([2, 4, 3].toListNode().toString()).toBe("2 -> 4 -> 3");
 });
-

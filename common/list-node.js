@@ -3,9 +3,9 @@ class ListNode {
         this.val = initializedValue;
         this.next = null;
     }
-    toString(){
+    toString() {
         var printString = `${this.val}`;
-        if(this.next != null){
+        if (this.next != null) {
             printString += ` -> ${this.next.toString()}`;
         } else {
             return printString;

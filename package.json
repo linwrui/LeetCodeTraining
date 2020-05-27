@@ -1,6 +1,7 @@
 {
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "prettier": "npx prettier --write ."
     },
     "devDependencies": {
         "eslint": "^7.0.0",

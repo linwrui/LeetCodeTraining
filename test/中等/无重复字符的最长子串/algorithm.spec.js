@@ -10,7 +10,7 @@ var lengthOfLongestSubstring = function (s) {
     for (let i = 0; i < s.length; i++) {
         var char = s[i];
         var searchIndex = substring.indexOf(char);
-        if (searchIndex===-1) {
+        if (searchIndex === -1) {
             substring += char;
         } else {
             substring = substring.substring(searchIndex + 1) + char; // 如果发现重复值，那么就需要往前截断重复值，并把当前字符推送进去作为新的截断字符串
