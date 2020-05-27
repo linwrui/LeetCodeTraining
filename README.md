@@ -15,3 +15,6 @@
 -   [x] GitHub CI
 -   [x] ES Lint
 -   [x] Prettier
+
+-   [ ] CodeEditor
+-   [ ] TestClient
