@@ -1,6 +1,6 @@
 # LeetCodeTraining
 
-力扣算法练习
+> 题库 - 力扣 (LeetCode) 全球极客挚爱的技术成长平台 https://leetcode-cn.com/problemset/all/
 
 ## 初始化项目
 
