@@ -26,12 +26,12 @@ class ListNode {
      * @memberof ListNode
      */
     static buildFromString(s, valueType, valueHandler) {
-        const result = s.split("->").toListNode(v => {
+        const result = this.buildFromArray(s.split("->"), v => {
             let convertValueType = valueType;
             const trimV = v.trim();
             let finalValue;
             // 关键词替换
-            switch(trimV){
+            switch (trimV) {
                 case "null":
                     finalValue = null;
                     break;
@@ -67,7 +67,7 @@ class ListNode {
                     break;
                 case "string":
                     const stringMatcher = /^[`"']([\s\S]*)[`"']$/;
-                    if(stringMatcher.test(finalValue)){
+                    if (stringMatcher.test(finalValue)) {
                         finalValue = finalValue.match(/^[`"']([\s\S]*)[`"']$/)[1];
                     }
                     break;
@@ -75,6 +75,21 @@ class ListNode {
             return valueHandler ? valueHandler(finalValue) : finalValue;
         });
         return result;
+    }
+    /**
+     * 从数组构建链表
+     *
+     * @static
+     * @param {[]} array 待构建链表的数组
+     * @param {function():any} handler 对单链表值的处理回调函数
+     * @returns
+     * @memberof ListNode
+     */
+    static buildFromArray(array, handler) {
+        var nextList = array.slice(1);
+        var listNode = new ListNode(handler ? handler(array[0]) : array[0]);
+        listNode.next = nextList.length ? this.buildFromArray(nextList, handler) : null;
+        return listNode;
     }
 }
 module.exports = ListNode;

@@ -1,0 +1,11 @@
+{
+  "name": "common-algorithms",
+  "version": "0.0.0",
+  "description": "通用算法封装",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "linwrui",
+  "license": "MIT"
+}
