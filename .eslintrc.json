@@ -4,7 +4,6 @@
         "node": true,
         "jest": true
     },
-    "extends": ["plugin:prettier/recommended"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly"
@@ -12,5 +11,28 @@
     "parserOptions": {
         "ecmaVersion": 11,
         "sourceType": "module"
+    },
+    "rules":{
+        "block-scoped-var": "off",
+        "default-case-last": "error",
+        "getter-return": "error",
+        "grouped-accessor-pairs": "error",
+        "no-const-assign": "error",
+        "no-duplicate-case": "error",
+        "no-duplicate-imports": "error",
+        "no-fallthrough": "error",
+        "no-global-assign": "error",
+        "no-shadow": "off",
+        "no-shadow-restricted-names": "error",
+        "no-undef": "error",
+        "no-use-before-define": [
+            "error",
+            {
+                "variables": false,
+                "functions": false,
+                "classes": false
+            }
+        ],
+        "no-var": "error"
     }
 }

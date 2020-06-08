@@ -2,7 +2,8 @@
     "scripts": {
         "test": "jest",
         "postinstall": "npm link ./common-algorithms",
-        "prettier": "npx prettier --write ."
+        "prettier": "npx prettier --write .",
+        "eslint": "npx eslint ./*.js"
     },
     "devDependencies": {
         "eslint": "^7.0.0",
