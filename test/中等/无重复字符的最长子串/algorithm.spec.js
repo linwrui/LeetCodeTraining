@@ -3,13 +3,13 @@ const fs = require("fs");
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function (s) {
+const lengthOfLongestSubstring = function (s) {
     if (s.length === 1) return 1;
-    var result = 0;
-    var substring = "";
+    let result = 0;
+    let substring = "";
     for (let i = 0; i < s.length; i++) {
-        var char = s[i];
-        var searchIndex = substring.indexOf(char);
+        const char = s[i];
+        const searchIndex = substring.indexOf(char);
         if (searchIndex === -1) {
             substring += char;
         } else {

@@ -11,14 +11,14 @@ const {ListNode} = require("common-algorithms");
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function (l1, l2) {
-    var carry = 0; // 进位，用于存储下一位的进位数
-    var result; // 存储结果运算的单链表
-    var resultNextListNode; // 存储结果运算的单链表最后一环
-    var l1Val = l1.val;
-    var l2Val = l2.val;
+const addTwoNumbers = function (l1, l2) {
+    let carry = 0; // 进位，用于存储下一位的进位数
+    let result; // 存储结果运算的单链表
+    let resultNextListNode; // 存储结果运算的单链表最后一环
+    let l1Val = l1.val;
+    let l2Val = l2.val;
     while (l1 || l2) {
-        var sum = l1Val + l2Val + carry;
+        const sum = l1Val + l2Val + carry;
         carry = Math.floor(sum / 10); // 进位数计算
         if (l1 && l1.next) {
             l1Val = l1.next.val;

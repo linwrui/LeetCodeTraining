@@ -3,12 +3,12 @@
  * @param {number} numRows
  * @return {string}
  */
-var convert = function (s, numRows) {
-    var matrix = [];
-    var zeroBaseRows = numRows - 1;
-    var fixRow = 0;
-    var fixColumn = 0;
-    var moveDirection = "down"; // 移动方向，当向下移动时fixRow递增到zeroBaseRows，同时fixColumn保持不变，当向上移动时fixRow递减到0，同时fixColumn递增
+const convert = function (s, numRows) {
+    const matrix = [];
+    const zeroBaseRows = numRows - 1;
+    let fixRow = 0;
+    let fixColumn = 0;
+    let moveDirection = "down"; // 移动方向，当向下移动时fixRow递增到zeroBaseRows，同时fixColumn保持不变，当向上移动时fixRow递减到0，同时fixColumn递增
     if (zeroBaseRows === 0) return s;
     for (let i = 0; i < s.length; i++) {
         if (matrix[fixRow] == null) {
@@ -36,8 +36,8 @@ var convert = function (s, numRows) {
                 break;
         }
     }
-    var result = "";
-    for (var numRow of matrix) {
+    let result = "";
+    for (const numRow of matrix) {
         result += numRow.filter(x => x != null).join("");
     }
     return result;

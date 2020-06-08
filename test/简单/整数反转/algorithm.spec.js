@@ -2,13 +2,13 @@
  * @param {number} x
  * @return {number}
  */
-var reverse = function (x) {
-    var MIN_VALUE = -2147483648; // -2^31
-    var MAX_VALUE = 2147483647; // 2^31 - 1
-    var num = x;
-    var result = 0;
+const reverse = function (x) {
+    const MIN_VALUE = -2147483648; // -2^31
+    const MAX_VALUE = 2147483647; // 2^31 - 1
+    let num = x;
+    let result = 0;
     while (num) {
-        var remainder = num % 10;
+        const remainder = num % 10;
         result = result * 10 + remainder;
         num = x < 0 ? Math.ceil(num / 10) : Math.floor(num / 10);
         if (MIN_VALUE > result || result > MAX_VALUE) {

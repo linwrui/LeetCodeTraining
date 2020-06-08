@@ -5,7 +5,7 @@ const {sumBy} = require("common-algorithms");
  * @param {number} threshold
  * @return {number}
  */
-var smallestDivisor = function (nums, threshold) {
+const smallestDivisor = function (nums, threshold) {
     return dichotomizationApproach(1, Math.max(...nums), x => sumBy(nums, n => Math.ceil(n / x)) <= threshold);
 };
 function dichotomizationApproach(start, end, approachTo) {

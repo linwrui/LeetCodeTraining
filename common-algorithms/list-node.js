@@ -5,7 +5,7 @@ class ListNode {
         this.next = null;
     }
     toString() {
-        var printString = `${this.val}`;
+        let printString = `${this.val}`;
         if (this.next != null) {
             printString += ` -> ${this.next.toString()}`;
         } else {
@@ -86,8 +86,8 @@ class ListNode {
      * @memberof ListNode
      */
     static buildFromArray(array, handler) {
-        var nextList = array.slice(1);
-        var listNode = new ListNode(handler ? handler(array[0]) : array[0]);
+        const nextList = array.slice(1);
+        const listNode = new ListNode(handler ? handler(array[0]) : array[0]);
         listNode.next = nextList.length ? this.buildFromArray(nextList, handler) : null;
         return listNode;
     }
