@@ -16,5 +16,4 @@
 -   [x] ES Lint
 -   [x] Prettier
 
--   [ ] CodeEditor
--   [ ] TestClient
+-   [ ] WebViewer
