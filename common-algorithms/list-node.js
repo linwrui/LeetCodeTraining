@@ -18,7 +18,7 @@ class ListNode {
      *
      * 注：字符串中用 ‘->’ 来代表数据的链路关系
      *
-     * 如："1->2->3->4->5"
+     * 如："1->2->3->4->5" 或者 "1 -> 2 -> 3 -> 4 -> 5"
      * @static
      * @param {string} s 待构建链表的字符串
      * @param {"string"|"boolean"|"number"} valueType 链表中值的数据类型，注意 undefined|null 将会被识别为关键词自动转换
@@ -81,7 +81,7 @@ class ListNode {
      *
      * @static
      * @param {[]} array 待构建链表的数组
-     * @param {function():any} handler 对单链表值的处理回调函数
+     * @param {function(v):any} handler 对单链表值的处理回调函数
      * @returns
      * @memberof ListNode
      */
